@@ -1,0 +1,91 @@
+<!doctype html>
+<meta charset="utf-8">
+<head>
+
+<title>YoYoyooooo!</title>
+<link rel="stylesheet" type="text/css" href="./css/nav.css">
+<link rel="stylesheet" type="text/css" href="./css/index.css">
+<link rel="stylesheet" type="text/css" href="./css/forall.css">
+<link rel="stylesheet" type="text/css" href="./css/footer.css">
+<link rel="Shortcut Icon" type="image/x-icon" href="絕對位址/相對位址">
+<script src="http://code.jquery.com/jquery-latest.min.js"></script>
+<script type='text/javascript' src="jquery-3.2.0.min.js"></script>
+<script type='text/javascript' src="./js/nav.js"></script>
+</head>
+
+<?php
+$kw = $_GET['kw'];
+?>
+
+<body>
+	<div id="top" class="top">YoYoyooooo!</div>
+	<a href="#top"><div id="topButton" class="topButton">top</div></a>
+	<div id="header" class="header">
+		<div class="funList">
+			<div>English</div>
+			<div>About</div>
+			<div>Contact</div>
+		</div>
+		<a href="./index.html"><div id="logo" class="logo">YoYoyooooo!</div></a>
+		<ul class="navBar">
+			<a href="index.html?kw=web_skill"><li>
+				Web Skill
+			</li></a>
+			<a href="index.html?kw=programing"><li>
+				Programing
+			</li></a>
+			<a href="index.html?kw=job_exp"><li>
+				Job Exp
+			</li></a>
+			<a href="index.html?kw=diary"><li>
+				Diary
+			</li></a>
+			<a href="index.html?kw=others"><li>
+				Others
+			</li></a>
+		</ul>
+	</div>
+	<div id="wrapper" class="wrapper">
+		<ul>
+		<?php
+		if ($kw==""){
+			require("mysql.php");
+			$newarticle = mysql_query("SELECT * FROM Article ORDER BY Date DESC LIMIT 10");
+			$num = mysql_num_rows($newarticle);
+			mysql_close($mysqllink);
+			for ( $i=0 ; $i<$num ; $i++ ) {
+			$rs = mysql_fetch_row($newarticle);
+			echo "<li class='article'><a href='article.html?articleId=$rs[0]'><div><div><img src='./src/$rs[4]'></div><div><div class='title'>$rs[1]</div><div class='date'><img src='./src/calendar.png'> $rs[2]</div><div class='content'>$rs[3]</div></div></div></a></li>";
+		}
+		}
+		else{
+			require("mysql.php");
+			$kwarticle = mysql_query("SELECT * FROM Article WHERE Tag = '$kw' ORDER BY Date DESC LIMIT 10");
+			$num = mysql_num_rows($kwarticle);
+			mysql_close($mysqllink);
+			for ( $i=0 ; $i<$num ; $i++ ) {
+			$rs = mysql_fetch_row($kwarticle);
+			echo "<li class='article'><a href='article.html?articleId=$rs[0]'><div><div><img src='./src/$rs[4]'></div><div><div class='title'>$rs[1]</div><div class='date'><img src='./src/calendar.png'> $rs[2]</div><div class='content'>$rs[3]</div></div></div></a></li>";
+		}
+		}
+		?>
+		</ul>
+	</div>
+	<div id="footer" class="footer">
+		<hr>
+		Copyright 2017 | All Rights Reserved. Designed by YoYoyooooo!
+	</div>
+</body>
+
+<script>
+$(function(){
+    var len = 60; // 超過50個字以"..."取代
+    $(".content").each(function(i){
+        if($(this).text().length>len){
+            
+            var text=$(this).text().substring(0,len-1)+"...";
+            $(this).text(text);
+        }
+    });
+});
+</script>
