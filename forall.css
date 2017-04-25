@@ -1,0 +1,30 @@
+body{
+	margin: 0;
+	background-image: url("../src/Aluminum.jpg");
+	background-repeat : no-repeat; 
+	background-attachment : fixed;
+}
+
+/* 回頁首*/
+.topButton{
+	text-align: center;
+	line-height:27px;
+	position: fixed;
+	bottom: 1vh;
+	right: 1vw;
+	border-radius: 50%;
+	width: 30px;
+	height: 30px;
+	background-color: #FEFFFA;
+	color: #336666;
+	z-index: 20;
+	border: 1px solid #336666;
+}
+.top{
+	width: 20px;
+	height: 20px;
+	z-index: 12;
+	position: absolute;
+	top: -20px;
+	left: 10px;
+}
