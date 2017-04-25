@@ -1,0 +1,56 @@
+/* 選單開始*/
+.header{
+	font-family:sans-serif;
+	text-align: center;
+	z-index: 10;
+	position: fixed;
+	height: 175px;
+	width: 100%;
+	background-color: #FEFFFA;
+	top: 0;
+
+	-webkit-box-shadow: 0px 2px 10px 	#4F4F4F;
+	-moz-box-shadow: 0px 2px 10px 	#4F4F4F;
+	box-shadow: 0px 2px 10px 	#4F4F4F;	
+}
+.funList{
+	 position: absolute;
+	 top: 10px;
+	 left: 50px;
+}
+.funList>div{
+	 display: inline;
+	 margin-right: 20px;
+}
+a{
+	text-decoration: none;
+}
+.logo{
+	font-family:fantasy;
+	color: black;
+	margin-top:45px;
+	font-size: 42px;
+}
+.navBar{
+	margin-top: 20px;
+	padding: 0px;
+	display: inline-block;
+	list-style-type:none;
+}/* 選項欄左右8%*/
+.navBar>a>li{
+	color: black;
+	cursor: pointer; 
+	font-size: 18px;
+	border: 1px solid #336666;
+	width: 13vw;
+	padding: 3px 0px;
+	margin: 0px 1vw 0px 1vw;
+
+	float: left;
+}/* 選項寬度為6個12%+左右1%*/
+.navBar>a>li:hover{
+	border-radius: 20px;
+	background-color: #424200;
+	color:white; 
+}/* 選項覆蓋後效果*/
+/* 選單結束*/
